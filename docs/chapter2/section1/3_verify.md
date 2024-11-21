@@ -6,8 +6,14 @@
 
 :::details 完成形
 ::: code-group
-<<<@/chapter2/section1/src/final/main.go{go:line-numbers}[main.go]
-<<<@/chapter2/section1/src/final/handler.go{go:line-numbers}[handler.go]
+<<<@/chapter2/section1/src/final/main.rs{rs:line-numbers}[main.rs]
+<<<@/chapter2/section1/src/final/handler.rs{rs:line-numbers}[handler.rs]
+<<<@/chapter2/section1/src/final/repository.rs{rs:line-numbers}[repository.rs]
+<<<@/chapter2/section1/src/final/handler/country.rs{rs:line-numbers}[handler/country.rs]
+<<<@/chapter2/section1/src/final/repository/country.rs{rs:line-numbers}[repository/country.rs]
+<<<@/chapter2/section1/src/final/handler/auth.rs{rs:line-numbers}[handler/auth.rs]
+<<<@/chapter2/section1/src/final/repository/users.rs{rs:line-numbers}[repository/users.rs]
+<<<@/chapter2/section1/src/final/repository/users_session.rs{rs:line-numbers}[repository/users_session.rs]
 :::
 
 ## 検証
@@ -16,7 +22,7 @@
 
 :::warning
 全て Postman での検証です。  
-`go run main.go`でサーバーを起動した状態で行ってください。
+`cargo run`でサーバーを起動した状態で行ってください。
 
 また、`GET`と`POST`を間違えないようにして下さい。
 :::
@@ -40,14 +46,20 @@
 リクエストの方の Headers で Cookie をセットします。
 
 Key に`Cookie`を
-Value に`sessions={コピーした値};`をセットします(既に自動で入っている場合もあります、その場合は追加しなくて大丈夫です)。
+Value に`session_id={コピーした値};`をセットします(既に自動で入っている場合もあります、その場合は追加しなくて大丈夫です)。
 
 もう一度 <a href="http://localhost:8080/cities/Tokyo">localhost:8080/cities/Tokyo</a> にアクセスすると正常に API が取れるようになりました。  
 (注意:`GET`です)
 ![](images/3/postman6-authorized.png)
 
 ここで、作成されたユーザーがデータベースに保存されていることを確認してみましょう。
-`mysql > SELECT * FROM users;`
+
+```bash
+SELECT * FROM users;
+SELECT * FROM user_passwords;
+SELECT * FROM user_sessions;
+```
+
 ![](images/3/database1-user.png)
 
 ユーザー名とハッシュ化されたパスワードが確認できますね。
