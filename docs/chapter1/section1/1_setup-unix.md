@@ -107,20 +107,6 @@ Task GitHub [https://github.com/go-task/task](https://github.com/go-task/task)
 
 :::
 
-### Go のツールのインストール
-
-VSCode で `Command`+`Shift`+`P` を押して出てくるコマンドパレットに`gotools`と入力して、出てきた「Go: Install/Update Tools」をクリックしてください。
-
-![](images/vscode_gotools.png)
-
-利用可能なツールの一覧が出てくるので、全てにチェックを入れて「OK」をクリックします。
-
-:::tip
-一番上の入力欄の左にあるチェックボックスを押すと一括選択ができます。
-:::
-
-出力で`All tools successfully installed. You are ready to Go. :)`と出ているのが確認できたら成功です。
-
 ## asdf の導入
 
 asdf とは、1 つのプログラムの複数のバージョンを PC 内で管理できるようにするものです。
